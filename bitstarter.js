@@ -22,7 +22,7 @@ fs.exists(fileName, function(exists) {
                 fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
                    content = buffer.toString(encoding, 0, buffer.length);
  
-                    console.log(content);
+                    //console.log(content);
                     fs.close(fd);
                 });
             });
@@ -32,7 +32,7 @@ fs.exists(fileName, function(exists) {
 
 
 app.get('/', function(request, response) {
-    response.send( content.toString() + '\n');
+    response.write( content.toString() );
 });
 
 var port = process.env.PORT || 5000;
