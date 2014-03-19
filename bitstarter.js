@@ -11,6 +11,7 @@ app.use(express.logger());
 var fs = require("fs");
 var fileName = "index.html";
 var encoding = "utf8";
+var content = "\n";
 
 fs.exists(fileName, function(exists) {
     if (exists) {
@@ -19,9 +20,9 @@ fs.exists(fileName, function(exists) {
                 var buffer = new Buffer(stats.size);
  
                 fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
-                    var data = buffer.toString(encoding, 0, buffer.length);
+                   content = buffer.toString(encoding, 0, buffer.length);
  
-                    console.log(data);
+                    console.log(content);
                     fs.close(fd);
                 });
             });
@@ -30,14 +31,11 @@ fs.exists(fileName, function(exists) {
 });
 
 
-
-
 app.get('/', function(request, response) {
-  response.send( content.toString() + '\n');
+    response.send( content.toString() + '\n');
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
-
