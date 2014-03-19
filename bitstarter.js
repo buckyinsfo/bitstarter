@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 
-var express = require('express');
+var express = require("express");
 var app = express();
 app.use(express.logger());
 
-var fs = require('fs');
+var fs = require("fs");
 var infile = "index.html";
-var content = fs.readFileSync( infile );
+var encoding = "utf8";
+var content = fs.readFileSync( infile, encoding );
 
 app.get('/', function(request, response) {
   response.send( content.toString() + '\n');
