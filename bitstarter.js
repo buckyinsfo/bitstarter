@@ -9,9 +9,28 @@ var app = express();
 app.use(express.logger());
 
 var fs = require("fs");
-var infile = "index.html";
+var fileName = "index.html";
 var encoding = "utf8";
-var content = fs.readFileSync( infile, encoding );
+
+fs.exists(fileName, function(exists) {
+    if (exists) {
+        fs.stat(fileName, function(error, stats) {
+            fs.open(fileName, "r", function(error, fd) {
+                var buffer = new Buffer(stats.size);
+ 
+                fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
+                    var data = buffer.toString(encoding, 0, buffer.length);
+ 
+                    console.log(data);
+                    fs.close(fd);
+                });
+            });
+        });
+    }
+});
+
+
+
 
 app.get('/', function(request, response) {
   response.send( content.toString() + '\n');
