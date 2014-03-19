@@ -1,22 +1,27 @@
 {
-  "name" : "bitstarter",
-  "description" : "Crowd funding site for Startup Engineering Stanford cs184",
-  "version" : "0.0.1",
-  "main" : "./bitstarter.js",
-  "author" : {
-    "name" : "Timothy J. Sayre",
-    "email" : "tsayre@cachehive.com",
-    "url" : "http://www.cashehive.com"
+  "name": "bitstarter",
+  "description": "Crowd funding site for Startup Engineering Stanford cs184",
+  "version": "0.0.1",
+  "main": "./bitstarter.js",
+  "author": {
+    "name": "Timothy J. Sayre",
+    "email": "tsayre@cachehive.com",
+    "url": "http://www.cashehive.com"
   },
-  "keywords" : [ "cs184 coursera startup engineering stanford" ],
-   "license" : {
-    "type" : "bsd"
+  "keywords": [
+    "cs184 coursera startup engineering stanford"
+  ],
+  "license": {
+    "type": "bsd"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/buckyinsfo/bitstarter.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buckyinsfo/bitstarter.git"
   },
-  "bugs" : {
-    "url" : "https://github.com/buckyinsfo/bitstarter/issues"
+  "bugs": {
+    "url": "https://github.com/buckyinsfo/bitstarter/issues"
+  },
+  "dependencies": {
+    "express": "^3.4.8"
   }
- }
+}
